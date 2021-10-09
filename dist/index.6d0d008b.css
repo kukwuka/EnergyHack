@@ -1,0 +1,89 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    /*margin: 0;*/
+}
+
+.map {
+    height: 1464px;
+    width: 2418px;
+    background-image: url("map.22503012.png");
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.valve {
+    background-color: #d9b7c0;
+    position: relative;
+    width: 40px;
+    height: 25px;
+}
+
+.v_1 {
+    top: 522px;
+    left: 326px;
+}
+
+.v_2 {
+    top: 474px;
+    left: 1950px;
+}
+
+.v_3 {
+    top: 538px;
+    left: 370px;
+}
+
+.v_4 {
+    top: 350px;
+    left: 700px;
+}
+
+.v_1 {
+    top: 522px;
+    left: 326px;
+}
+
+.v_5 {
+    top: 174px;
+    left: 1250px;
+}
+
+.v_6 {
+    top: 617px;
+    left: 1535px;
+}
+
+.v_7 {
+    top: 1300px;
+    left: 764px;
+}
+
+.v_8 {
+    top: 1190px;
+    left: 420px;
+}
+
+.v_9 {
+    top: 750px;
+    left: 1690px;
+}
+
+.v_10 {
+    top: 950px;
+    left: 1690px;
+}
+
+.v_11 {
+    top: 1240px;
+    left: 1540px;
+}
+
+.label_valve {
+    margin: 10px;
+}
+
+
+/*# sourceMappingURL=index.6d0d008b.css.map */

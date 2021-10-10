@@ -58,8 +58,7 @@ def get_valves(
         P_1 - P_2, P_2 - P_3, P_3 - P_4, P_4 - P_5, 
         P_5 - P_6, P_6 - P_7, P_7 - P_8, P_8 - P_9
     ]
-    return [model.predict(list(valves.values())) for model in models]
-    return [model.predict(list(valves.values())) for model in models]
+    return [model.predict(data) for model in models]
 
 @app.get("/v")
 def get_optimal_valve(
@@ -91,7 +90,7 @@ def get_optimal_valve(
             result += pred_Qplant_1
         else:
             result += 0.4 - pred_Qplant_1
-         
+        
         result += pred_Qplant_1
 
         pred_Qplant_2 = models[7].predict(input_data)

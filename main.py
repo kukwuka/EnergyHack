@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 import pickle
 
 from bayes_opt import BayesianOptimization
@@ -6,7 +7,10 @@ from catboost import CatBoostRegressor
 import numpy as np
 import pandas as pd
 
+
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="dist"), name="static")
 
 @app.post("/q")
 def get_q(

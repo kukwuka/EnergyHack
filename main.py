@@ -76,26 +76,26 @@ def get_optimal_valve(
 
         pred_Qplant_1 = models[6].predict(input_data)
         if pred_Qplant_1 > 0.4:
-            result += pred_Qplant_1.predict(input_data)
+            result += pred_Qplant_1
         else:
-            result += 0.4 - pred_Qplant_1.predict(input_data)
+            result += 0.4 - pred_Qplant_1
          
-        result += pred_Qplant_1.predict(input_data)
+        result += pred_Qplant_1
 
         pred_Qplant_2 = models[7].predict(input_data)
         if pred_Qplant_2 > 1.4:
-            result += pred_Qplant_2.predict(input_data)
+            result += pred_Qplant_2
         else:
-            result += 1.4 - pred_Qplant_2.predict(input_data)
+            result += 1.4 - pred_Qplant_2
 
         pred_Qplant_3 = models[8].predict(input_data)
-        result += pred_Qplant_3.predict(input_data)
+        result += pred_Qplant_3
 
         pred_Qplant_4 = models[9].predict(input_data)
         if pred_Qplant_4 > 1.6:
-            result += pred_Qplant_4.predict(input_data)
+            result += pred_Qplant_4
         else:
-            result += 1.6 - pred_Qplant_4.predict(input_data)
+            result += 1.6 - pred_Qplant_4
 
         return result
 

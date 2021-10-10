@@ -136,6 +136,6 @@ def get_optimal_valve(
 
     optimizer.maximize(
         # init_points=2,
-        n_iter=50, # 100 is better
+        n_iter=10, # 100 is better
     )
     return optimizer.max['params']

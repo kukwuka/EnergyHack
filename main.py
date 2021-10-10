@@ -122,10 +122,10 @@ def get_optimal_valve(
         'valve_6': (0, 1) if valve_6 == -1 else (valve_6, valve_6), 
         'valve_7': (0, 1) if valve_7 == -1 else (valve_7, valve_7), 
         'valve_8': (0, 1) if valve_8 == -1 else (valve_8, valve_8), 
-        'valve_9': (0, 1) if valve_9 == -1 else (valve_9, valve_9), 
-        'valve_10': (0, 1) if valve_10 == -1 else (valve_10, valve_10), 
-        'valve_11': (0, 1) if valve_11 == -1 else (valve_11, valve_11), 
-        'valve_12': (0, 1) if valve_12 == -1 else (valve_12, valve_12)
+        'valve_9': (0.1, 1) if valve_9 == -1 else (valve_9, valve_9), 
+        'valve_10': (0.1, 1) if valve_10 == -1 else (valve_10, valve_10), 
+        'valve_11': (0.1, 1) if valve_11 == -1 else (valve_11, valve_11), 
+        'valve_12': (0.2, 1) if valve_12 == -1 else (valve_12, valve_12)
     }
 
     optimizer = BayesianOptimization(

@@ -522,9 +522,9 @@ PredictVavButton.onclick = ()=>{
     for(let i3 = 0; i3 < 7; i3++)url += 'Q_' + (i3 + 1).toString() + '=' + parseFloat(Qvalues[i3].value).toString() + '&';
     for(let i4 = 0; i4 < 9; i4++)url += 'P_' + (i4 + 1).toString() + '=' + parseFloat(Pvalues[i4].value).toString() + '&';
     url += 'QGRS_1=' + QGRS_1_valve.value + '&';
-    url += 'QGRS_2=' + QGRS_1_valve.value + '&';
-    url += 'PGRS_1=' + QGRS_1_valve.value + '&';
-    url += 'PGRS_2=' + QGRS_1_valve.value + '&';
+    url += 'QGRS_2=' + QGRS_2_valve.value + '&';
+    url += 'PGRS_1=' + PGRS_1_valve.value + '&';
+    url += 'PGRS_2=' + PGRS_2_valve.value + '&';
     url += 'QPlant_1=' + QPlant_1.value + '&';
     url += 'QPlant_2=' + QPlant_2.value + '&';
     url += 'QPlant_3=' + QPlant_3.value + '&';
@@ -533,8 +533,11 @@ PredictVavButton.onclick = ()=>{
     fetch(url).then(async (resp)=>{
         let json = await resp.json();
         console.log(json);
-        resultVav.innerText += '\n';
-        for(let i5 = 0; i5 < 12; i5++)resultVav.innerText += i5 + 1 + ' : ' + json[i5] + '\n';
+        resultVav.innerText = '\n';
+        for(let i5 = 0; i5 < 12; i5++){
+            if (json[i5] < 0) json[i5] = 0;
+            resultVav.innerText += i5 + 1 + ' : ' + json[i5] + '\n';
+        }
         console.log(resultVav);
     });
 };

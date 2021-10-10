@@ -464,6 +464,10 @@ const PredictValue = {
 const CrashButton = document.getElementById('Crash');
 const PredictButton = document.getElementById('Predict');
 const myInput = document.getElementById('popup1');
+const QGRS_1 = document.getElementById('QGRS_1');
+const QGRS_2 = document.getElementById('QGRS_2');
+const PGRS_1 = document.getElementById('PGRS_1');
+const PGRS_2 = document.getElementById('PGRS_2');
 for(let i = 0; i < 12; i++){
     CrashCheck[i] = document.getElementById('crashChose' + (i + 1).toString());
     CrashValue[i] = document.getElementById('valve_crash_' + (i + 1).toString());
@@ -480,11 +484,14 @@ PredictButton.onclick = ()=>{
         console.log(i1 + 1);
         url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(PredictValue[i1].value).toString() + '&';
     }
+    url += 'QGRS_1' + QGRS_1.value;
+    url += 'QGRS_2' + QGRS_2.value;
+    url += 'PGRS_1' + PGRS_1.value;
+    url += 'PGRS_2' + PGRS_2.value;
     // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
     fetch(url).then(async (resp)=>{
         let json = await resp.json();
         console.log(json);
-        myInput.c;
     });
 // console.log(CheckedToSend)
 };
@@ -493,13 +500,13 @@ CrashButton.onclick = ()=>{
     };
     let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/v?';
     console.log(CrashValue);
-    for(let i1 = 0; i1 < 12; i1++)if (CrashCheck[i1].checked) url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(PredictValue[i1].value).toString() + '&';
+    for(let i1 = 0; i1 < 12; i1++)if (CrashCheck[i1].checked) url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(CrashValue[i1].value).toString() + '&';
     else url += 'valve_' + (i1 + 1).toString() + '=-1&';
     console.log(url);
     // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
     fetch(url).then(async (resp)=>{
         let json = await resp.json();
-        console.log(json);
+        for(let i2 = 0; i2 < 12; i2++)CrashValue[i2].value = json['valve_' + (i2 + 1).toString()];
     });
 // console.log(CheckedToSend)
 };

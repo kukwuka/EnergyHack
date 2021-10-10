@@ -46,27 +46,21 @@ def get_q(
 @app.get("/v")
 def get_optimal_valve(
     valve_1: float, valve_2: float, valve_3: float, valve_4: float, valve_5: float, valve_6: float, 
-    valve_7: float, valve_8: float, valve_9: float, valve_10: float, valve_11: float, valve_12: float
+    valve_7: float, valve_8: float, valve_9: float, valve_10: float, valve_11: float, valve_12: float,
+    QGRS_1: float, QGRS_2: float, PGRS_1, PGRS_2
 ):
-    with open('models.pkl', 'rb') as f:
+    with open('models_2.pkl', 'rb') as f:
         models = pickle.load(f)
 
     def black_box_function(
         valve_1, valve_2, valve_3, valve_4, valve_5, valve_6, 
         valve_7, valve_8, valve_9, valve_10, valve_11, valve_12
     ):
-        """
-        Function with unknown internals we wish to maximize.
-
-        This is just serving as an example, for all intents and
-        purposes think of the internals of this function, i.e.: the process
-        which generates its output values, as unknown.
-        """
         result = 0
         input_data = [
             valve_1, valve_2, valve_3, valve_4, valve_5, valve_6, 
             valve_7, valve_8, valve_9, valve_10, valve_11, valve_12
-        ]
+        ] + [QGRS_1, QGRS_2, PGRS_1, PGRS_2]
         for model in models[:6]:
             pred = model.predict(input_data)
             if pred > 0.6:

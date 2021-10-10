@@ -97,7 +97,7 @@ def get_optimal_valve(
         if pred_Qplant_2 > 1.2:
             result += pred_Qplant_2
         else:
-            result += - (1.2 - pred_Qplant_4)
+            result += - (1.2 - pred_Qplant_2)
 
         pred_Qplant_3 = models[8].predict(input_data)
         if pred_Qplant_3 > 0.4:

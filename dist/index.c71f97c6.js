@@ -536,6 +536,7 @@ PredictVavButton.onclick = ()=>{
         resultVav.innerText = '\n';
         for(let i5 = 0; i5 < 12; i5++){
             if (json[i5] < 0) json[i5] = 0;
+            if (json[i5] > 1) json[i5] = 1;
             resultVav.innerText += i5 + 1 + ' : ' + json[i5] + '\n';
         }
         console.log(resultVav);

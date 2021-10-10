@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"1nxmM":[function(require,module,exports) {
+})({"3WTT0":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "4e5dac8afe405db7";
-module.bundle.HMR_BUNDLE_ID = "9faf444bc71f97c6";
+var HMR_ENV_HASH = "69f74e7f31319ffd";
+module.bundle.HMR_BUNDLE_ID = "5c6af6d84139e2a3";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -454,54 +454,8 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}]},["1nxmM"], null, "parcelRequireef37")
-const CrashCheck = {
-};
-const CrashValue = {
-};
-const PredictValue = {
-};
-const CrashButton = document.getElementById('Crash');
-const PredictButton = document.getElementById('Predict');
-const myInput = document.getElementById('popup1');
-for(let i = 0; i < 12; i++){
-    CrashCheck[i] = document.getElementById('crashChose' + (i + 1).toString());
-    CrashValue[i] = document.getElementById('valve_crash_' + (i + 1).toString());
-    PredictValue[i] = document.getElementById('valve_predict_' + (i + 1).toString());
-}
-console.log(CrashCheck);
-console.log(CrashValue);
-PredictButton.onclick = ()=>{
-    const CheckedToSend = {
-    };
-    let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?';
-    console.log(CrashValue);
-    for(let i1 = 0; i1 < 12; i1++){
-        console.log(i1 + 1);
-        url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(PredictValue[i1].value).toString() + '&';
-    }
-    // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
-    fetch(url).then(async (resp)=>{
-        let json = await resp.json();
-        console.log(json);
-        myInput.c;
-    });
-// console.log(CheckedToSend)
-};
-CrashButton.onclick = ()=>{
-    const CheckedToSend = {
-    };
-    let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/v?';
-    console.log(CrashValue);
-    for(let i1 = 0; i1 < 12; i1++)if (CrashCheck[i1].checked) url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(PredictValue[i1].value).toString() + '&';
-    else url += 'valve_' + (i1 + 1).toString() + '=-1&';
-    console.log(url);
-    // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
-    fetch(url).then(async (resp)=>{
-        let json = await resp.json();
-        console.log(json);
-    });
-// console.log(CheckedToSend)
-};
+},{}],"3JWLp":[function(require,module,exports) {
 
-//# sourceMappingURL=index.c71f97c6.js.map
+},{}]},["3WTT0","3JWLp"], "3JWLp", "parcelRequireef37")
+
+//# sourceMappingURL=EnergyHack.4139e2a3.js.map

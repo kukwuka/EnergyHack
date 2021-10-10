@@ -25,7 +25,7 @@ app.add_middleware(
 
 app.mount("/static", StaticFiles(directory="dist"), name="static")
 
-@app.post("/q")
+@app.get("/q")
 def get_q(
     valve_1: float, valve_2: float, valve_3: float, 
         valve_4: float, valve_5: float, valve_6: float, 

@@ -43,6 +43,24 @@ def get_q(
         models = pickle.load(f)
     return [model.predict(list(valves.values())) for model in models]
 
+@app.get("/vav")
+def get_valves(
+    QGRS_1: float, QGRS_2: float, QPlant_1: float, QPlant_2: float, QPlant_3: float, QPlant_4: float,
+    PGRS_1: float, PGRS_2: float, P_1: float, P_2: float, P_3: float, P_4: float, P_5: float, P_6: float, P_7: float,
+    P_8: float, P_9: float, Q_1: float, Q_2: float, Q_3: float, Q_4: float, Q_5: float, Q_6: float, Q_7: float
+):
+    with open('models_1.pkl', 'rb') as f:
+        models = pickle.load(f)
+    data = [
+        QGRS_1, QGRS_2, QPlant_1, QPlant_2, QPlant_3, QPlant_4,
+        PGRS_1, PGRS_2, P_1, P_2, P_3, P_4, P_5, P_6, P_7,
+        P_8, P_9, Q_1, Q_2, Q_3, Q_4, Q_5, Q_6, Q_7,
+        P_1 - P_2, P_2 - P_3, P_3 - P_4, P_4 - P_5, 
+        P_5 - P_6, P_6 - P_7, P_7 - P_8, P_8 - P_9
+    ]
+    return [model.predict(list(valves.values())) for model in models]
+    return [model.predict(list(valves.values())) for model in models]
+
 @app.get("/v")
 def get_optimal_valve(
     valve_1: float, valve_2: float, valve_3: float, valve_4: float, valve_5: float, valve_6: float, 

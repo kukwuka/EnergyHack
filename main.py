@@ -47,7 +47,7 @@ def get_q(
 def get_optimal_valve(
     valve_1: float, valve_2: float, valve_3: float, valve_4: float, valve_5: float, valve_6: float, 
     valve_7: float, valve_8: float, valve_9: float, valve_10: float, valve_11: float, valve_12: float,
-    QGRS_1: float, QGRS_2: float, PGRS_1, PGRS_2
+    QGRS_1: float, QGRS_2: float, PGRS_1: float, PGRS_2: float
 ):
     with open('models_2.pkl', 'rb') as f:
         models = pickle.load(f)

@@ -461,52 +461,93 @@ const CrashValue = {
 };
 const PredictValue = {
 };
+const Pvalues = {
+};
+const Qvalues = {
+};
+const QPlant_1 = document.getElementById('QPlant_1');
+const QPlant_2 = document.getElementById('QPlant_2');
+const QPlant_3 = document.getElementById('QPlant_3');
+const QPlant_4 = document.getElementById('QPlant_4');
+const QGRS_1_valve = document.getElementById('QGRS_1_valve');
+const QGRS_2_valve = document.getElementById('QGRS_2_valve');
+const PGRS_1_valve = document.getElementById('PGRS_1_valve');
+const PGRS_2_valve = document.getElementById('PGRS_2_valve');
 const CrashButton = document.getElementById('Crash');
 const PredictButton = document.getElementById('Predict');
+const PredictVavButton = document.getElementById('PredictVav');
 const myInput = document.getElementById('popup1');
 const QGRS_1 = document.getElementById('QGRS_1');
 const QGRS_2 = document.getElementById('QGRS_2');
 const PGRS_1 = document.getElementById('PGRS_1');
 const PGRS_2 = document.getElementById('PGRS_2');
+const result = document.getElementById('result');
+const resultVav = document.getElementById('resultVav');
 for(let i = 0; i < 12; i++){
     CrashCheck[i] = document.getElementById('crashChose' + (i + 1).toString());
     CrashValue[i] = document.getElementById('valve_crash_' + (i + 1).toString());
     PredictValue[i] = document.getElementById('valve_predict_' + (i + 1).toString());
 }
-console.log(CrashCheck);
-console.log(CrashValue);
-PredictButton.onclick = ()=>{
-    const CheckedToSend = {
-    };
-    let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?';
-    console.log(CrashValue);
-    for(let i1 = 0; i1 < 12; i1++){
-        console.log(i1 + 1);
-        url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(PredictValue[i1].value).toString() + '&';
-    }
-    url += 'QGRS_1' + QGRS_1.value;
-    url += 'QGRS_2' + QGRS_2.value;
-    url += 'PGRS_1' + PGRS_1.value;
-    url += 'PGRS_2' + PGRS_2.value;
+for(let i1 = 0; i1 < 7; i1++)Qvalues[i1] = document.getElementById('Q_' + (i1 + 1).toString());
+for(let i2 = 0; i2 < 9; i2++)Pvalues[i2] = document.getElementById('P_' + (i2 + 1).toString());
+console.log(Qvalues);
+console.log(Pvalues);
+// PredictButton.onclick = () => {
+//     let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?'
+//     console.log(PredictValue)
+//     for (let i = 0; i < 12; i++) {
+//         console.log(i)
+//         console.log(PredictValue[i])
+//         url += 'valve_' + (i + 1).toString() + '=' + parseFloat(PredictValue[i].value).toString() + '&'
+//     }
+//     url += 'QGRS_1=' + QGRS_1.value + '&'
+//     url += 'QGRS_2=' + QGRS_2.value + '&'
+//     url += 'PGRS_1=' + PGRS_1.value + '&'
+//     url += 'PGRS_2=' + PGRS_2.value + '&'
+//     url += 'QPlant_1=' + QPlant_1.value + '&'
+//     url += 'QPlant_2=' + QPlant_2.value + '&'
+//     url += 'QPlant_3=' + QPlant_3.value + '&'
+//     url += 'QPlant_4=' + QPlant_4.value + '&'
+//     // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
+//     fetch(url
+//     ).then(async (resp) => {
+//         let json = await resp.json()
+//         console.log(json)
+//     })
+// }
+PredictVavButton.onclick = ()=>{
+    console.log(Qvalues);
+    console.log(Pvalues);
+    let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/vav?';
+    for(let i3 = 0; i3 < 7; i3++)url += 'Q_' + (i3 + 1).toString() + '=' + parseFloat(Qvalues[i3].value).toString() + '&';
+    for(let i4 = 0; i4 < 9; i4++)url += 'P_' + (i4 + 1).toString() + '=' + parseFloat(Pvalues[i4].value).toString() + '&';
+    url += 'QGRS_1=' + QGRS_1.value + '&';
+    url += 'QGRS_2=' + QGRS_2.value + '&';
+    url += 'PGRS_1=' + PGRS_1.value + '&';
+    url += 'PGRS_2=' + PGRS_2.value + '&';
+    url += 'QPlant_1=' + QPlant_1.value + '&';
+    url += 'QPlant_2=' + QPlant_2.value + '&';
+    url += 'QPlant_3=' + QPlant_3.value + '&';
+    url += 'QPlant_4=' + QPlant_4.value + '&';
     // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
     fetch(url).then(async (resp)=>{
         let json = await resp.json();
         console.log(json);
+        resultVav.innerText += '\n';
+        for(let i5 = 0; i5 < 12; i5++)resultVav.innerText += i5 + 1 + ' : ' + json[i5] + '\n';
+        console.log(resultVav);
     });
-// console.log(CheckedToSend)
 };
 CrashButton.onclick = ()=>{
-    const CheckedToSend = {
-    };
     let url = 'http://ovz1.j31739297.meo8n.vps.myjino.ru/v?';
     console.log(CrashValue);
-    for(let i1 = 0; i1 < 12; i1++)if (CrashCheck[i1].checked) url += 'valve_' + (i1 + 1).toString() + '=' + parseFloat(CrashValue[i1].value).toString() + '&';
-    else url += 'valve_' + (i1 + 1).toString() + '=-1&';
+    for(let i3 = 0; i3 < 12; i3++)if (CrashCheck[i3].checked) url += 'valve_' + (i3 + 1).toString() + '=' + parseFloat(CrashValue[i3].value).toString() + '&';
+    else url += 'valve_' + (i3 + 1).toString() + '=-1&';
     console.log(url);
     // 'http://ovz1.j31739297.meo8n.vps.myjino.ru/q?valve_1=0.5&valve_2=0.5&valve_3=0.5&valve_4=0.5&valve_5=0.5&valve_6=0.5&valve_7=0.5&valve_8=0.5&valve_9=0.5&valve_10=0.5&valve_11=0.5&valve_12=0.5'
     fetch(url).then(async (resp)=>{
         let json = await resp.json();
-        for(let i2 = 0; i2 < 12; i2++)CrashValue[i2].value = json['valve_' + (i2 + 1).toString()];
+        for(let i4 = 0; i4 < 12; i4++)CrashValue[i4].value = json['valve_' + (i4 + 1).toString()];
     });
 // console.log(CheckedToSend)
 };

@@ -18,12 +18,26 @@ input::-webkit-inner-spin-button {
 
 /*}*/
 
+.maphall {
+    height: 764px;
+}
+
 .map {
     height: 1464px;
     width: 2418px;
-    transform: scale(0.45);
+    transform: scale(0.35);
     background-image: url("map.22503012.png");
     transform-origin: top left;
+}
+
+.result {
+    transform-origin: top left;
+
+    position: absolute;
+    text-align: center;
+    top: 520px;
+    left: 400px;
+
 }
 
 input[type=number] {
@@ -40,73 +54,13 @@ input[type=number] {
     height: 25px;
 }
 
-.v_1 {
-    top: 522px;
-    left: 326px;
-}
-
-.v_2 {
-    top: 474px;
-    left: 1950px;
-}
-
-.v_3 {
-    top: 538px;
-    left: 370px;
-}
-
-.v_4 {
-    top: 350px;
-    left: 700px;
-}
-
-.v_1 {
-    top: 522px;
-    left: 326px;
-}
-
-.v_5 {
-    top: 174px;
-    left: 1250px;
-}
-
-.v_6 {
-    top: 617px;
-    left: 1535px;
-}
-
-.v_7 {
-    top: 1300px;
-    left: 764px;
-}
-
-.v_8 {
-    top: 1190px;
-    left: 420px;
-}
-
-.v_9 {
-    top: 750px;
-    left: 1690px;
-}
-
-.v_10 {
-    top: 950px;
-    left: 1690px;
-}
-
-.v_11 {
-    top: 1240px;
-    left: 1540px;
-}
-
 .label_valve {
     margin: 10px;
 }
 
 .griiid {
     display: grid;
-    grid-template-columns: 200px 1100px 200px;
+    grid-template-columns: 200px 870px  200px;
 
 }
 
@@ -125,12 +79,22 @@ input[type=number] {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.invisible{
+.invisible {
     display: none;
+}
+
+.grid_2 {
+    display: grid;
+    grid-template-columns: 220px 200px;
+
 }
 
 /*# sourceMappingURL=index.6d0d008b.css.map */
